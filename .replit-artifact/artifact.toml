@@ -1,0 +1,24 @@
+kind = "mobile"
+previewPath = "/bun-n-bite-mobile/"
+title = "Bun 'N Bite Mobile"
+description = "A polished React Native mobile ordering app for Bun 'N Bite. It preserves the restaurant's existing branding, menu, customization, cart, favorites, delivery and pickup, checkout, payment choices, and order confirmation experience for phone users."
+version = "1.0.0"
+id = "artifacts/bun-n-bite-mobile"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/bun-n-bite-mobile/" ]
+localPort = 25665
+
+[services.development]
+run = "pnpm --filter @workspace/bun-n-bite-mobile run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/bun-n-bite-mobile", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/bun-n-bite-mobile", "run", "serve" ]
+
+[services.env]
+PORT = "25665"
+BASE_PATH = "/bun-n-bite-mobile/"
